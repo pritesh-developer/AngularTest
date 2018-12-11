@@ -1,0 +1,139 @@
+<!--<div class="container">
+	<div class="form-block">
+		<nav>
+			<ul id="tabs">
+				<li routerLink="/login">Login</li>
+				<li routerLink="/register">Register</li>
+				<li routerLink="/profile">Profile</li>
+			</ul>
+		</nav>
+    </div>
+</div>-->
+
+<!-- Page Header -->
+<header class="masthead" >
+	<div class="overlay"></div>
+	<div class="container">
+	  <div class="row">
+		<div class="col-lg-12 col-md-12 mx-auto">
+		  <div class="site-heading">
+			<img src="../assets/img/0.jpg"/><span>Pritesh Paul</span>
+			
+		  </div>
+		  <div class="container">
+			  <div class="row">
+
+				<div class="col-lg-4 profile-stat">
+							<div>
+								Comments
+								
+								<p>
+										{{allComments.length}}
+								</p>
+								
+
+							</div>
+							<div class="followings">
+								Photos
+								<p>
+								{{allPosts.length}}
+								</p>
+							</div>
+							<div>
+								Albums
+								<p>
+								{{allPosts.length}}
+								</p>
+							</div>
+							
+			   </div>
+			   <div class="col-lg-1"></div>
+			   <div class="col-lg-7 profile-stat profile-tabs">
+
+					    <div  routerLink="/" routerLinkActive="active" routerLinkActiveOptions="{exact:
+								true}">
+							Home
+						</div>
+						<div routerLink="/notifications" routerLinkActive="active">
+							Albums
+						</div>
+						<div routerLink="/discover" routerLinkActive="active">
+							Photos
+						</div>
+
+						<div routerLink="/me" routerLinkActive="active">
+								Me
+						</div>
+
+			   </div>
+			   </div>
+		  </div>
+
+
+		</div>
+	  </div>
+	</div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+	<div class="row">
+	  <div class="col-lg-4 col-md-4 mx-auto">
+		<app-sidebar></app-sidebar> 
+		<app-tasks></app-tasks>
+		 
+	  </div>
+	  <div class="col-lg-8 col-md-8 mx-auto">
+		
+		  <router-outlet></router-outlet>
+	  </div>
+	</div>
+  </div>
+
+	<button data-toggle="modal" data-target="#myModal" class="add-tweet">Add</button>
+	
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+					<h4 class=" text-center">Add Post</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+      </div>
+      <div class="modal-body">
+					
+					<form  (ngSubmit)="submitForm()">
+
+							<div class="form-row">
+								<label>Name:</label>
+								<input type="text" class="rowin" [(ngModel)]="name" name="name"/> 
+							</div>
+				 
+							<div class="alert" *ngIf="">This is required</div>
+				 
+							<div class="form-row">
+								<label>Description</label>
+								 <textarea class="rowin" [(ngModel)]="description" name="description"></textarea> 
+							 </div>
+
+							 {{name}}{{description}}
+				 
+							 <div class="form-row row-submit">
+									 <input type="submit" [disabled]="" /> 
+								 </div>
+					 </form>
+				 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

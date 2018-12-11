@@ -1,0 +1,17 @@
+<div class="container sidebar-design">
+
+    <span class="sidebar-headline">Invite People</span>
+    <hr>
+  
+    <div *ngFor="let item of allUsers">
+      
+        <div class="users-row">
+
+            <img src="../assets/img/0.jpg"/><span>{{item.title}}</span>
+            <div class="users-desc">{{item.body}}</div>
+          
+        </div>
+
+     </div>
+  
+  </div>

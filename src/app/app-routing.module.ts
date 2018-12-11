@@ -1,10 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './test/login/login.component';
-import { RegisterComponent } from './test/register/register.component';
 
-const routes: Routes = [{path:'login',loadChildren:'./test/test.module#TestModule'},{path:'register',component:RegisterComponent} ];
 
+import { TweetsComponent } from './tweets/tweets.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { DiscoverComponent } from './discover/discover.component';
+
+
+
+
+import { HomeComponent } from './home/home.component';
+import { MeComponent } from './me/me.component';
+
+const routes: Routes = [{path:'',component:HomeComponent,children:[{path:'',component:TweetsComponent},
+{path:'notifications',component:NotificationsComponent},{path:'discover',component:DiscoverComponent},
+{path:'me',component:MeComponent}
+]
+}
+
+
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
